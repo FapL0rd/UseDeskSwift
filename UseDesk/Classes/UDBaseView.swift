@@ -5,7 +5,7 @@ import Foundation
 import UIKit
 import SDWebImage
 
-class UDBaseView: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate{
+public class UDBaseView: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate{
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var loadingView: UIView!
