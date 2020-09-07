@@ -101,7 +101,6 @@ public class UseDeskSDK: NSObject {
             baseView.url = self.url
             let navController = UDNavigationController(rootViewController: baseView)
             navController.setTitleTextAttributes()
-            navController.modalPresentationStyle = .fullScreen
             parentController?.present(navController, animated: true)
             hud.hide(animated: true)
         } else {
