@@ -24,7 +24,7 @@ class UDBaseView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         self.init(nibName: nibName, bundle: BundleId.bundle(for: nibName))
     }
     
-    public override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         self.modalPresentationStyle = .fullScreen
         UIView.animate(withDuration: 0.3) {
@@ -53,7 +53,7 @@ class UDBaseView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         tableView.register(UINib(nibName: "UDHeaderBaseViewCell", bundle: BundleId.thisBundle), forCellReuseIdentifier: "UDHeaderBaseViewCell")
     }
     
-    public override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         usedesk?.getCollections(connectionStatus: { [weak self] success, collections, error in
             guard let wSelf = self else {return}
             if success {
@@ -66,7 +66,7 @@ class UDBaseView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         })
     }
     
-    public override func viewDidLayoutSubviews() {
+    override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         if !isViewDidLayout {
             searchBar.frame = CGRect(origin: .zero, size: CGSize(width: navigationView.frame.width - 30, height: navigationView.frame.height)) 
@@ -127,7 +127,7 @@ class UDBaseView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         }
     }
     
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isSearch {
             if searchArticles != nil {
                 return (searchArticles?.articles.count)!
@@ -151,7 +151,7 @@ class UDBaseView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
 //        return  arrayCollections[section].title
 //    }
     
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if isSearch {
             let cell = tableView.dequeueReusableCell(withIdentifier: "UDArticleViewCell", for: indexPath) as! UDArticleViewCell
             if searchArticles != nil {
