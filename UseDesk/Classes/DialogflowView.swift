@@ -22,7 +22,7 @@ class DialogflowView: RCMessagesView, UIImagePickerControllerDelegate, UINavigat
         if let backButtonImage = backButtonImage {
             navigationItem.leftBarButtonItem = UIBarButtonItem(image: backButtonImage, style: .plain, target: self, action: #selector(self.actionDone))
         } else {
-            navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .reply, target: self, action: #selector(self.actionDone))
+            navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Отмена", style: .plain, target: self, action: #selector(self.actionDone))
         }
         
         navigationItem.title = usedesk?.nameChat
