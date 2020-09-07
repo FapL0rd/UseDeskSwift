@@ -113,7 +113,6 @@ public class UseDeskSDK: NSObject {
                         wSelf.dialogflowVC.usedesk = wSelf
                         let navController = UDNavigationController(rootViewController: wSelf.dialogflowVC)
                         navController.setTitleTextAttributes()
-                        navController.modalPresentationStyle = .fullScreen
                         parentController?.present(navController, animated: true)
                         hud.hide(animated: true)
                     } else {
@@ -123,7 +122,6 @@ public class UseDeskSDK: NSObject {
                             offlineVC.url = wSelf.url
                             offlineVC.usedesk = wSelf
                             let navController = UDNavigationController(rootViewController: offlineVC)
-                            navController.modalPresentationStyle = .fullScreen
                             parentController?.present(navController, animated: true)
                             hud.hide(animated: true)
                         }
