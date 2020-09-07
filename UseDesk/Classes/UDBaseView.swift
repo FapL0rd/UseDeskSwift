@@ -10,8 +10,8 @@ class UDBaseView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var loadingView: UIView!
     
-    public weak var usedesk: UseDeskSDK?
-    public var url: String?
+    weak var usedesk: UseDeskSDK?
+    var url: String?
     var arrayCollections: [BaseCollection] = []
     var navigationView = UIView()
     var isViewDidLayout: Bool = false
