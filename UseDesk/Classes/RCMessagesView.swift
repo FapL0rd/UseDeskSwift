@@ -49,8 +49,8 @@ class RCMessagesView: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        buttonInputSend.tintColor = UIColor(hexString: "3125BD")
-        buttonInputAttach.tintColor = UIColor(hexString: "3125BD")
+        buttonInputSend.setImage(UIImage(named: "send")?.changeColor(color: UIColor(hexString: "3125BD")), for: .normal)
+        buttonInputAttach.setImage(UIImage(named: "attach")?.changeColor(color: UIColor(hexString: "3125BD")), for: .normal)
         separator.backgroundColor = UIColor(hexString: "3125BD")
         
         tableView.register(RCSectionHeaderCell.self, forCellReuseIdentifier: "RCSectionHeaderCell")
@@ -663,5 +663,26 @@ extension RCMessagesView: RCAttachCVCellDelegate {
             sendAssets = []
             closeAttachCollection()
         }
+    }
+}
+
+private extension UIImage {
+    func changeColor(color: UIColor) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(size, false, scale)
+        if let context = UIGraphicsGetCurrentContext() {
+            context.translateBy(x: 0, y: size.height)
+            context.scaleBy(x: 1.0, y: -1.0)
+            context.setBlendMode(.normal)
+            let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+            if let cgImage = cgImage {
+                context.clip(to: rect, mask: cgImage)
+                color.setFill()
+                context.fill(rect)
+                let newImage = UIGraphicsGetImageFromCurrentImageContext()
+                UIGraphicsEndImageContext()
+                return newImage ?? self
+            }
+        }
+        return self
     }
 }
