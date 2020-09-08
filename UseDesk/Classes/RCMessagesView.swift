@@ -14,6 +14,7 @@ class RCMessagesView: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var textInput: UITextView!
     @IBOutlet weak var textInputHC: NSLayoutConstraint!
     @IBOutlet weak var textInputBC: NSLayoutConstraint!
+    @IBOutlet weak var separator: UIView!
     @IBOutlet weak var attachCollectionView: UICollectionView!
     // @IBOutlet var viewInputAudio: UIView!
     //@IBOutlet var labelInputAudio: UILabel!
@@ -47,6 +48,10 @@ class RCMessagesView: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        buttonInputSend.tintColor = UIColor(hexString: "3125BD")
+        buttonInputAttach.tintColor = UIColor(hexString: "3125BD")
+        separator.backgroundColor = UIColor(hexString: "3125BD")
         
         tableView.register(RCSectionHeaderCell.self, forCellReuseIdentifier: "RCSectionHeaderCell")
         tableView.register(RCBubbleHeaderCell.self, forCellReuseIdentifier: "RCBubbleHeaderCell")
