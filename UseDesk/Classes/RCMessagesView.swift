@@ -225,6 +225,7 @@ class RCMessagesView: UIViewController, UITableViewDataSource, UITableViewDelega
     // MARK: - Input panel methods
     func inputPanelInit() {
         viewInput.backgroundColor = RCMessages.inputViewBackColor()
+        viewInput.addShadow(.black, offset: .zero, radius: 4.0, opacity: 0.3)
         textInput.backgroundColor = RCMessages.inputTextBackColor()
         textInput.isScrollEnabled = false
         
@@ -309,7 +310,6 @@ class RCMessagesView: UIViewController, UITableViewDataSource, UITableViewDelega
         //if ([textInput.text length] != 0)
         //{
         actionSendMessage(textInput.text)
-        dismissKeyboard()
         textInput.text = nil
         inputPanelUpdate()
         //}
@@ -327,11 +327,6 @@ class RCMessagesView: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func actionSendMessage(_ text: String?) {
-    }
-    
-    // MARK: - UIScrollViewDelegate
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        dismissKeyboard()
     }
 
     // MARK: - Table view data source
@@ -684,5 +679,38 @@ private extension UIImage {
             }
         }
         return self
+    }
+}
+
+private extension UIView {
+    var shadowColor: UIColor {
+        get { return layer.shadowColor == nil ? UIColor.clear : UIColor(cgColor: layer.shadowColor!) }
+        set { layer.shadowColor = newValue.cgColor }
+    }
+    
+    var shadowOffset: CGSize {
+        get { return layer.shadowOffset }
+        set { layer.shadowOffset = newValue}
+    }
+    
+    var shadowOpacity: Float {
+        get { return layer.shadowOpacity }
+        set { layer.shadowOpacity = newValue }
+    }
+    
+    var shadowRadius: CGFloat {
+        get { return layer.shadowRadius }
+        set { layer.shadowRadius = newValue }
+    }
+    
+    func addShadow(_ color: UIColor = UIColor.NUUMBlack, offset: CGSize = CGSize(width: 0.0, height: 0.0), radius: CGFloat = 10, opacity: Float = 0.15) {
+        shadowColor = color
+        shadowOffset = offset
+        shadowOpacity = opacity
+        shadowRadius = radius
+    }
+    
+    func removeShadow() {
+        shadowRadius = 0.0
     }
 }
