@@ -12,6 +12,7 @@
                 <outlet property="attachCollectionView" destination="dSh-VU-anE" id="KJB-QQ-u8Z"/>
                 <outlet property="buttonInputAttach" destination="Wx7-PH-b4G" id="rdS-HP-55b"/>
                 <outlet property="buttonInputSend" destination="aaP-dQ-ykO" id="SVD-OS-0XZ"/>
+                <outlet property="separator" destination="bO0-7C-fxS" id="5Vo-zs-zKe"/>
                 <outlet property="tableView" destination="i5M-Pr-FkT" id="lyD-HE-CdL"/>
                 <outlet property="textInput" destination="WF4-Ti-KqT" id="fwE-JZ-jPs"/>
                 <outlet property="textInputBC" destination="0QF-3K-Leo" id="kGo-RE-VxI"/>
