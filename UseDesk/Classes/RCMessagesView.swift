@@ -49,8 +49,8 @@ class RCMessagesView: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        buttonInputSend.setImage(UIImage(named: "send")?.changeColor(color: UIColor(hexString: "3125BD")), for: .normal)
-        buttonInputAttach.setImage(UIImage(named: "attach")?.changeColor(color: UIColor(hexString: "3125BD")), for: .normal)
+        buttonInputSend.setImage(UIImage.named("send").changeColor(color: UIColor(hexString: "3125BD")), for: .normal)
+        buttonInputAttach.setImage(UIImage.named("attach").changeColor(color: UIColor(hexString: "3125BD")), for: .normal)
         separator.backgroundColor = UIColor(hexString: "3125BD")
         
         tableView.register(RCSectionHeaderCell.self, forCellReuseIdentifier: "RCSectionHeaderCell")
