@@ -703,7 +703,7 @@ private extension UIView {
         set { layer.shadowRadius = newValue }
     }
     
-    func addShadow(_ color: UIColor = UIColor.NUUMBlack, offset: CGSize = CGSize(width: 0.0, height: 0.0), radius: CGFloat = 10, opacity: Float = 0.15) {
+    func addShadow(_ color: UIColor = .black, offset: CGSize = CGSize(width: 0.0, height: 0.0), radius: CGFloat = 10, opacity: Float = 0.15) {
         shadowColor = color
         shadowOffset = offset
         shadowOpacity = opacity
