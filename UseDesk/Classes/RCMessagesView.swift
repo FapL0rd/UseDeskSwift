@@ -277,7 +277,7 @@ class RCMessagesView: UIViewController, UITableViewDataSource, UITableViewDelega
         var frameTextInput: CGRect = textInput.frame
         frameTextInput.size.height = heightInput
         textInput.frame = frameTextInput
-        textInputHC.constant = heightInput
+        textInputHC.constant = heightInput > 40.0 ? heightInput : 40.0
 //        var frameAudio: CGRect = buttonInputAudio.frame
 //        frameAudio.origin.y = heightInput - frameAudio.size.height
 //        buttonInputAudio.frame = frameAudio
