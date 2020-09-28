@@ -248,10 +248,12 @@ class DialogflowView: RCMessagesView, UIImagePickerControllerDelegate, UINavigat
             }
         }
         usedesk?.releaseChat()
-        if isFromBase {
-            navigationController?.popViewController(animated: true)
-        } else {
-            dismiss(animated: true)
+        DispatchQueue.main.async {
+            if self.isFromBase {
+                self.navigationController?.popViewController(animated: true)
+            } else {
+                self.dismiss(animated: true)
+            }
         }
     }
     

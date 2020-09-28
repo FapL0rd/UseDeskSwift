@@ -36,7 +36,6 @@ class UDBaseView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         tableView.tableFooterView = UIView()
         
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Отмена", style: .plain, target: self, action: #selector(self.actionExit))
         navigationView = UIView(frame: navigationController?.navigationBar.bounds ?? .zero)
         navigationItem.titleView = navigationView
         searchBar = UISearchBar()
@@ -108,10 +107,6 @@ class UDBaseView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             }
             
         })
-    }
-    
-    @objc func actionExit() {
-        self.dismiss(animated: true, completion: nil)
     }
     
     // MARK: - TableView
