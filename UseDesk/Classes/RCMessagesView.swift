@@ -80,7 +80,6 @@ class RCMessagesView: UIViewController, UITableViewDataSource, UITableViewDelega
 //        buttonInputAudio.addGestureRecognizer(gesture)
         
         //viewInputAudio.isHidden = true
-        
         inputPanelInit()
         
     }
@@ -242,6 +241,7 @@ class RCMessagesView: UIViewController, UITableViewDataSource, UITableViewDelega
         textInput.clipsToBounds = true
         
         textInput.textContainerInset = UIEdgeInsets(top: 5, left: 7, bottom: 5, right: 7)
+        inputPanelUpdate()
     }
 
     func inputPanelUpdate() {
