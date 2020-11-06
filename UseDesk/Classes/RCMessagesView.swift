@@ -275,7 +275,7 @@ class RCMessagesView: UIViewController, UITableViewDataSource, UITableViewDelega
         if isAttachFiles {
             frameViewInput.size.height += Constants.heightAssetsCollection
             frameViewInput.origin.y -= Constants.heightAssetsCollection
-            textInputBC.constant += Constants.heightAssetsCollection
+            textInputBC.constant = Constants.heightAssetsCollection
         }
         viewInput.frame = frameViewInput
         viewInput.layoutIfNeeded()
