@@ -48,7 +48,11 @@ class RCMessagesView: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if #available(iOS 11.0, *) {
+            safeAreaInsetsBottom = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? view.safeAreaInsets.bottom
+        } else {
+            // Fallback on earlier versions
+        }
         buttonInputSend.setImage(UIImage.named("send").changeColor(color: UIColor(hexString: "3125BD")), for: .normal)
         buttonInputAttach.setImage(UIImage.named("attach").changeColor(color: UIColor(hexString: "3125BD")), for: .normal)
         separator.backgroundColor = UIColor(hexString: "3125BD")
@@ -94,7 +98,7 @@ class RCMessagesView: UIViewController, UITableViewDataSource, UITableViewDelega
         if !isViewDidLayoutSubviews {
             isViewDidLayoutSubviews = true
             if #available(iOS 11.0, *) {
-                safeAreaInsetsBottom = view.safeAreaInsets.bottom
+                safeAreaInsetsBottom = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? view.safeAreaInsets.bottom
                 tableView.frame = CGRect(x: tableView.frame.origin.x, y: tableView.frame.origin.y, width: tableView.frame.width, height: tableView.frame.height - safeAreaInsetsBottom)
             } else {
                 // Fallback on earlier versions
@@ -227,6 +231,8 @@ class RCMessagesView: UIViewController, UITableViewDataSource, UITableViewDelega
         viewInput.addShadow(.black, offset: .zero, radius: 4.0, opacity: 0.3)
         textInput.backgroundColor = RCMessages.inputTextBackColor()
         textInput.isScrollEnabled = false
+        
+        textInput.autocorrectionType = .no
         
         textInput.font = RCMessages.inputFont()
         textInput.textColor = RCMessages.inputTextTextColor()
